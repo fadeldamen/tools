@@ -11,3 +11,7 @@ Onde o sufixo /8 se refere ao comprimento em bits da máscara de rede, que pode 
 Se não souber o que é isso, apenas use /8. (ou [leia isto](https://pt.wikipedia.org/wiki/Classless_Inter-Domain_Routing#Nota.C3.A7.C3.A3o_standard))
 
 Obs.: A verificação do sistema operacional é apenas um chute baseado no TTL da resposta. Onde este é totalmente impreciso.
+
+### wiki.py
+Ferramenta para buscar e ler artigos na Wikipédia em várias línguas diferentes.  
+Para ver informações de uso, execute: ./wiki.py --help
