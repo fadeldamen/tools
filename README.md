@@ -15,3 +15,7 @@ Obs.: A verificação do sistema operacional é apenas um chute baseado no TTL d
 ### wiki.py
 Ferramenta para buscar e ler artigos na Wikipédia em várias línguas diferentes.  
 Para ver informações de uso, execute: ./wiki.py --help
+
+### mainsearch.py
+Ferramenta para obter informações de um [executável elf](https://pt.wikipedia.org/wiki/ELF).  
+Mostra informações como entry point mas principalmente a localização da função main().
