@@ -51,9 +51,8 @@ with open(args.executable, "rb") as elf:
 
     elf.seek(entryraw)
     while True:
-        b1 = getbytes(elf.read(1))
-        b2 = getbytes(elf.read(1))
-        if b1 == 0xFF and b2 == 0x15:
+        b = getbytes(elf.read(2))
+        if b == 0x15FF:
             elf.seek(elf.tell()-6)
             mainaddress = getbytes(elf.read(4))
             break
