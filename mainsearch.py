@@ -24,6 +24,11 @@ def getbytes(data):
 
 
 with open(args.executable, "rb") as elf:
+    magic = getbytes(elf.read(4))
+    if magic != 0x464C457F:
+        print("This is not a elf executable")
+        quit()
+
     elf.seek(0x18) # Offset of the entrypoint
     entrypoint = getbytes(elf.read(8))
     pheader    = getbytes(elf.read(8))
