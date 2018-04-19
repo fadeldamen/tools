@@ -53,8 +53,17 @@ with open(args.executable, "rb") as elf:
     while True:
         b = getbytes(elf.read(2))
         if b == 0x15FF:
-            elf.seek(elf.tell()-6)
-            mainaddress = getbytes(elf.read(4))
+            i = elf.tell()-2
+            elf.seek(i-7)
+            b = getbytes(elf.read(2))
+            elf.seek(1, 1)
+
+            if b == 0x8D48: # LEA
+                raddr       = 0xFFFFFFFF - getbytes(elf.read(4)) + 1
+                mainaddress = (i - raddr) + vaddress
+            else:
+                mainaddress = getbytes(elf.read(4))
+
             break
 
 print("""Developed by Luiz Felipe
