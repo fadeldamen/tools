@@ -52,7 +52,7 @@ with open(args.executable, "rb") as elf:
     elf.seek(entryraw)
     while True:
         b = getbytes(elf.read(2))
-        if b == 0x15FF:
+        if b == 0x15FF or b == 0xE867:
             i = elf.tell()-2
             elf.seek(i-7)
             b = getbytes(elf.read(2))
