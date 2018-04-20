@@ -59,8 +59,12 @@ with open(args.executable, "rb") as elf:
             elf.seek(1, 1)
 
             if b == 0x8D48: # LEA
-                raddr       = 0xFFFFFFFF - getbytes(elf.read(4)) + 1
-                mainaddress = (i - raddr) + vaddress
+                raddr       = getbytes(elf.read(4))
+                if raddr & (1 << 31):
+                    raddr       = 0xFFFFFFFF - raddr + 1
+                    mainaddress = (i - raddr) + vaddress
+                else:
+                    mainaddress = (i + raddr) + vaddress
             else:
                 mainaddress = getbytes(elf.read(4))
 
