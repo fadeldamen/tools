@@ -19,3 +19,32 @@ Para ver informações de uso, execute: ./wiki.py --help
 ### mainsearch.py
 Ferramenta para obter informações de um [executável elf](https://pt.wikipedia.org/wiki/ELF).  
 Mostra informações como entry point mas principalmente a localização da função main().
+
+### template.sh
+Ferramenta para criação de templates de arquivos.  
+
+#### Comandos básicos
+> ./template.sh +nome_do_template  
+Cria ou modifica um template.
+
+> ./template.sh -nome_do_template  
+Deleta um template existente.
+
+> ./template.sh @  
+Lista todos os templates existentes.
+
+> ./template.sh nome_do_template  
+Exibe o conteúdo de um template. Você pode redirecionar a saída para o nome de um arquivo para criar um novo arquivo com o template.  
+Exemplo:
+
+> ./template.sh c >main.c  
+
+Você pode adicionar uma descrição aos templates, bastanto incluir na primeira linha do arquivo o caractere ":" seguido da descrição.  
+Exemplo:
+
+>:Template da main do C  
+>#include <stdio.h>  
+>
+>int main(){  
+>return 0;  
+>}
